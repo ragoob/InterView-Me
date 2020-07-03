@@ -1,0 +1,24 @@
+version: '3'
+services:
+    postgres:
+      image: postgres
+      environment:
+        POSTGRES_PASSWORD: postgres
+        POSTGRES_USERNAME: postgres
+        POSTGRES_DB: interviewmedb
+        PGDATA: /data/postgres
+    backend:
+      build: .
+      depends_on:
+        - postgres
+      ports:
+        - "3000:3000"
+        - "9229:9229"
+      environment:
+        POSTGRES_HOST: postgres
+        POSTGRES_PASSWORD: postgres
+        POSTGRES_USERNAME: postgres
+        JWT_SECRET: 'Secrt@2017@'
+        POSTGRES_DB: interviewmedb
+        
+  
