@@ -22,5 +22,6 @@ export class UserRegisterDTO{
 
   @IsString()
   @IsEmail()
+  @ApiProperty()
   emailAddress: string;
 }
