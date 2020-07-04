@@ -2,6 +2,8 @@ version: '3'
 services:
     postgres:
       image: postgres
+      ports:
+        - "5433:5432"
       environment:
         POSTGRES_PASSWORD: postgres
         POSTGRES_USERNAME: postgres
@@ -20,5 +22,6 @@ services:
         POSTGRES_USERNAME: postgres
         JWT_SECRET: 'Secrt@2017@'
         POSTGRES_DB: interviewmedb
+        POSTGRES_PORT: 5432
         
   

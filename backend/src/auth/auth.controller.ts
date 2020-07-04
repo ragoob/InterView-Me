@@ -14,8 +14,7 @@ export class AuthController {
 
   @Post('/singup')
   async signUp(@Body(ValidationPipe) user: UserRegisterDTO): Promise<void> {
-  
-    return this.authService.singup(user);
+    return await this.authService.singup(user);
   }
 
   @Post('/singIn')

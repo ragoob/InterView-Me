@@ -4,13 +4,11 @@ import { AppService } from './app.service';
 import { AuthModule } from './auth/auth.module';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { typeormconfig } from './config/typeorm.config';
-import { InterviewModule } from './interview/interview.module';
 
 @Module({
   imports: [
     TypeOrmModule.forRoot(typeormconfig),
-    AuthModule,
-    InterviewModule
+    AuthModule
     ],
   controllers: [AppController],
   providers: [AppService],
