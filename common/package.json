@@ -1,0 +1,21 @@
+{
+  "name": "common",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.ts",
+  "scripts": {
+    "build": "tsc",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "mohamed ragab",
+  "license": "ISC",
+  "devDependencies": {
+    "typescript": "^3.9.7"
+  },
+  "dependencies": {
+    "@types/emojione": "^2.2.6",
+    "@types/node": "^14.0.27",
+    "emojione": "^4.5.0",
+    "kafkajs": "^1.12.0"
+  }
+}

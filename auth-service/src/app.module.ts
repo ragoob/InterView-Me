@@ -6,7 +6,13 @@ import { TypeOrmModule } from '@nestjs/typeorm'
 import { User } from './entities/user.entity';
 import { AuthService } from './services/auth.service';
 import { AuthController } from './controllers/auth.controller';
-
+import { MessagePublisher, IMessagePublisher } from '../../common/index'
+import { MESSAGE_PUBLISHER_PROVIDER_NAME, KAFKA_BROKERS } from '../../configuration/constants'
+const MESSAGE_PUBLISHER_PROVIDER = {
+  provide: MESSAGE_PUBLISHER_PROVIDER_NAME,
+  useClass: MessagePublisher,
+  useValue: new MessagePublisher(KAFKA_BROKERS, 'Auth_Service')
+}
 @Module({
   imports: [
     PassportModule.register({
@@ -42,6 +48,6 @@ import { AuthController } from './controllers/auth.controller';
 
   ],
   controllers: [AuthController],
-  providers: [JwtStrategy, AuthService],
+  providers: [JwtStrategy, AuthService, MESSAGE_PUBLISHER_PROVIDER],
 })
 export class AppModule { }
